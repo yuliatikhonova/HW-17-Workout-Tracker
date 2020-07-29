@@ -8,6 +8,8 @@ const db = require("./models");
 
 const app = express();
 
+const databaseName = "workout_db"
+
 app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -17,9 +19,8 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/custommethoddb", { useNewUrlParser: true });
 
-
-//code
-
+app.use("/api", require("./routes/api-routes.js"));
+app.use("/", require("./routes/html-routes.js"));
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
