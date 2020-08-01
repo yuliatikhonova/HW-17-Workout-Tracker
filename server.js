@@ -7,8 +7,6 @@ const app = express();
 
 const db = require("./models");
 
-const databaseName = "workout"
-
 app.use(logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
@@ -26,4 +24,3 @@ app.listen(PORT, () => {
   });
 
 
-``

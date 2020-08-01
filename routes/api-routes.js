@@ -29,7 +29,8 @@ router.put('/workouts/:id', (req, res) => {
 
 
 router.get("/workouts/range", (req, res) => {
-  db.Workout.find({}).limit(7)
+  db.Workout.find({})
+    .limit(7)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
